@@ -1,0 +1,121 @@
+﻿@model ML.Disco
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Scripts.Render("~/bundles/jquery")
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+}
+<br>
+<div class="text-center">
+    <h2 class="display-6">Formulario</h2>
+</div>
+<br>
+@using (Html.BeginForm("Form", "Disco", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-3">
+            @Html.HiddenFor(model => model.IdDisco)
+
+
+            @Html.LabelFor(model => model.Titulo)
+
+            @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control bloquear" })
+            <br>
+
+        </div>
+
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.Artista)
+            @Html.TextBoxFor(model => model.Artista, new { @class = "form-control bloquear" })
+            <br>
+
+        </div>
+
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.GeneroMusical)
+            @Html.TextBoxFor(model => model.GeneroMusical, new { @class = "form-control bloquear" })
+            <br>
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.Duracion)
+            @Html.TextBoxFor(model => model.Duracion, new { @class = "form-control bloquear" })
+            <br>
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.Año)
+            @Html.TextBoxFor(model => model.Año, new { @class = "form-control bloquear" })
+            <br>
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.Distribuidora)
+            @Html.TextBoxFor(model => model.Distribuidora, new { @class = "form-control bloquear" })
+            <br>
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.Ventas)
+            @Html.TextBoxFor(model => model.Ventas, new { @class = "form-control bloquear" })
+            <br>
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.Distribuidora)
+            @Html.TextBoxFor(model => model.Disponibilidad, new { @class = "form-control bloquear" })
+            <br>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- Final de los campos -->
+    </div>
+    <br>
+    <div class="text-center">
+        <button id="btnGuardar" class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+        <a id="btnCancelar" class="btn btn-danger" href="@Url.Action("GetAll", "Disco")"><i class="fa-solid fa-right-from-bracket"></i> Volver</a>
+    </div>
+    <br>
+
+
+    @Scripts.Render("~/bundles/jquery")
+
+
+
+    <script>
+
+
+        $("#btnGuardar").mouseenter(function () {
+            $("#btnGuardar").addClass("fa-bounce").removeClass("btn-success").mouseout(function () {
+                $("#btnGuardar").addClass("btn-success").removeClass("fa-bounce")
+
+
+
+            })
+
+        });
+
+
+        $("#btnCancelar").mouseenter(function () {
+            $("#btnCancelar").addClass("fa-bounce").removeClass("btn-danger").mouseout(function () {
+                $("#btnCancelar").removeClass("fa-bounce").addClass("btn-danger")
+
+
+
+            })
+
+        });
+
+    </script>
+
+
+
+
+
+}
